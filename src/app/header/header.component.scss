@@ -4,3 +4,11 @@
     margin: 0 1em .25em 0;
   }
 }
+
+@media (max-width: 900px) {
+  .jumbotron-title {
+    & h1 {
+      margin: 0 .25em 0 0;
+    }
+  }
+}
