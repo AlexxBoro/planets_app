@@ -1,0 +1,6 @@
+.jumbotron-title {
+  display: flex;
+  & h1 {
+    margin: 0 1em .25em 0;
+  }
+}
