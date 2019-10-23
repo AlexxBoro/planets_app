@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PlanetsService } from 'src/app/planets.service';
 
 @Component({
   selector: 'app-planet-card',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./planet-card.component.scss']
 })
 export class PlanetCardComponent implements OnInit {
+  @Input() planet: void;
 
-  constructor() { }
+  constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
+  }
+
+  onSelected() {
+    // console.log("clicked on selected card!");
+    this.planetsService.selectedPlanet.emit(this.planet);
   }
 
 }

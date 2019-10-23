@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanetsService } from '../planets.service';
 
 @Component({
   selector: 'app-planet-details',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./planet-details.component.scss']
 })
 export class PlanetDetailsComponent implements OnInit {
+  selectedPlanet;
 
-  constructor() { }
+  constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
+    this.planetsService.selectedPlanet.subscribe(
+      (planet) => {
+        this.selectedPlanet = planet;
+      }
+    );
   }
 
 }
