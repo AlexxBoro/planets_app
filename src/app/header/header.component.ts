@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Welcome to the Planet App!';
-  text: string = 'Discover undiscovered. Learn about the misterious world of planets. Check out the details of each celestial body by clicking on a card.';
+  text: string = 'Discover undiscovered. Learn about the misterious world of planets. Check out the details of each celestial body by clicking on it.';
 
   constructor() {}
 

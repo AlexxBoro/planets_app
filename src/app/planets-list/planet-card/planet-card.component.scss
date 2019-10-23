@@ -1,0 +1,11 @@
+.planet-card {
+  padding: .3em;
+}
+
+.planet-card__content {
+  text-decoration: none;
+  color: #333;
+  & .thumbnail {
+    background-color: #eee;
+  }
+}
