@@ -1,8 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { HttpClientModule } from '@angular/common/http';
 
-// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { SearchBarComponent } from "./search-bar/search-bar.component";
@@ -24,7 +24,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -38,7 +37,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
         path: '**',
         component: NotFoundComponent
       }
-    ])
+    ]),
+    HttpClientModule
   ],
   providers: [PlanetsService],
   bootstrap: [AppComponent]
