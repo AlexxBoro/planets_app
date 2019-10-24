@@ -1,9 +1,5 @@
 <app-search-bar></app-search-bar>
 <div class="planets-grid">
-  <!-- <div *ngIf="planets"> -->
-      <app-planet-card></app-planet-card>
-  <!-- </div> -->
-  <!-- <div *ngIf="planets === undefined">
-    spinnerrrrrr
-  </div> -->
+  <p style="color:white;" *ngIf="arePlanetsLoading">Loading planets....</p>
+  <app-planet-card *ngFor="let planet of planets"></app-planet-card>
 </div>

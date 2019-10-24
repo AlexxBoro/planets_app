@@ -10,14 +10,16 @@ import { PlanetsService } from '../planets.service';
 export class PlanetsListComponent implements OnInit {
 
   planets;
+  arePlanetsLoading = false;
 
   constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
-    // tu sie trzeba subskrybowac???
-    console.log(this.planetsService.getPlanets());
-    this.planets = this.planetsService.getPlanets();
-
-    console.log(this.planets);
+    this.arePlanetsLoading = true;
+    this.planetsService.getPlanets().subscribe(planets => {
+      this.arePlanetsLoading = false;
+      this.planets = planets;
+      console.log(planets);
+    });
   }
 }

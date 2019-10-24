@@ -7,11 +7,17 @@ import { PlanetsService } from 'src/app/planets.service';
   styleUrls: ['./planet-card.component.scss']
 })
 export class PlanetCardComponent implements OnInit {
+
+  // planets;
   @Input() planet: void;
 
   constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
+    // this.planetsService.getPlanets().subscribe(planets => {
+    //   this.planets = planets;
+    //   console.log(planets);
+    // });
   }
 
   onSelected() {
