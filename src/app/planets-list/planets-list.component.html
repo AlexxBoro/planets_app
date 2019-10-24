@@ -1,5 +1,16 @@
 <app-search-bar></app-search-bar>
 <div class="planets-grid">
   <p style="color:white;" *ngIf="arePlanetsLoading">Loading planets....</p>
-  <app-planet-card *ngFor="let planet of planets"></app-planet-card>
+  <!-- <app-planet-card *ngFor="let planet of planets"></app-planet-card> -->
+  <div *ngFor="let planet of planets" class="col-sm-6 col-md-4 planet-card">
+      <a [routerLink]="['/details']" class="planet-card__content">
+        <div class="thumbnail">
+          <h2>{{ planet.name }}</h2>
+          <p>diameter: <span>{{ planet.diameter }}</span></p>
+          <p>rotation period: <span>{{ planet.rotation_period }}</span></p>
+          <p>orbital period: <span>{{ planet.orbital_period }}</span></p>
+          <p>population: <span>{{ planet.population }}</span></p>
+        </div>
+      </a>
+    </div>
 </div>

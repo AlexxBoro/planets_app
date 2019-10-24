@@ -1,3 +1,15 @@
-.planets-grid {
-  // tu będzie grid na którym będą planety
+.planet-card {
+  padding: .3em;
+}
+
+.planet-card__content {
+  text-decoration: none;
+  color: #333;
+  & .thumbnail {
+    background-color: #eee;
+  }
+}
+
+span {
+  font-weight: 600;
 }
