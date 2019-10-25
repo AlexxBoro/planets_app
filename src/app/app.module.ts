@@ -30,7 +30,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
         component: PlanetsListComponent
       },
       {
-        path: 'details',
+        path: 'details/:name',
         component: PlanetDetailsComponent
       },
       {

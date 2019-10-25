@@ -1,14 +1,20 @@
-<form>
-  <label for="search" class="sr-only">Search planets by name:</label>
-  <div class="input-group">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="submit">Go!</button>
-    </span>
-    <input
-      class="form-control"
-      name="search"
-      id="search"
-      placeholder="Search by planet's name..."
-    />
-  </div>
-</form>
+<label for="search" class="sr-only">Search planets by name:</label>
+<div class="input-group">
+  <span class="input-group-btn">
+    <button
+      class="btn btn-default"
+      type="button"
+      (click)="onSearch(query.value)"
+    >
+      Go!
+    </button>
+  </span>
+  <input
+    class="form-control"
+    name="search"
+    id="search"
+    placeholder="Search by planet's name..."
+    #query
+    (keyup.enter)="onSearch(query.value)"
+  />
+</div>

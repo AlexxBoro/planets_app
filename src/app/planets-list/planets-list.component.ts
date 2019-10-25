@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PlanetsService } from '../planets.service';
 
 @Component({
@@ -7,19 +7,28 @@ import { PlanetsService } from '../planets.service';
   styleUrls: ['./planets-list.component.scss'],
   providers: [PlanetsService]
 })
-export class PlanetsListComponent implements OnInit {
+export class PlanetsListComponent implements OnInit, OnDestroy {
 
   planets;
-  arePlanetsLoading = false;
+  arePlanetsLoading: boolean = false;
 
   constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
     this.arePlanetsLoading = true;
-    this.planetsService.getPlanets().subscribe(planets => {
-      this.arePlanetsLoading = false;
-      this.planets = planets;
-      console.log(planets);
+    this.planetsService.getPlanets().subscribe(
+      planets => {
+        this.arePlanetsLoading = false;
+        this.planets = planets;
+        // console.log(planets);
+    }, (error: Response) => {
+      alert('an unexpected error occured :-(');
+      console.log(error);
     });
   }
+
+  ngOnDestroy() {
+    // this.planetsService.getPlanets().unsubscribe();
+  }
+
 }

@@ -3,7 +3,7 @@
   <p style="color:white;" *ngIf="arePlanetsLoading">Loading planets....</p>
   <!-- <app-planet-card *ngFor="let planet of planets"></app-planet-card> -->
   <div *ngFor="let planet of planets" class="col-sm-6 col-md-4 planet-card">
-    <a [routerLink]="['/details']" class="planet-card__content">
+    <a [routerLink]="['/details', planet.name]" class="planet-card__content">
       <div class="thumbnail">
         <h2>{{ planet.name }}</h2>
         <table>
