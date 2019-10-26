@@ -2,11 +2,11 @@
 <div class="planets-grid">
   <p style="color:white;" *ngIf="arePlanetsLoading">Loading planets....</p>
 
-  <div *ngFor="let article of articles" class="col-sm-6 col-md-4 planet-card">
-    <a [routerLink]="['/details', article.name]" class="planet-card__content" (click)="onSelected(article)">
+  <div *ngFor="let planet of planets" class="col-sm-6 col-md-4 planet-card">
+    <a [routerLink]="['/details', planet.name]" class="planet-card__content" (click)="onSelected(planet)">
       <div class="thumbnail">
-        <h2>{{ article.name }}</h2>
-        <!-- <table>
+        <h2>{{ planet.name }}</h2>
+        <table>
           <tr>
             <td>diameter:</td>
             <td class="data-column">{{ planet.diameter }}</td>
@@ -23,7 +23,7 @@
             <td>population:</td>
             <td class="data-column">{{ planet.population }}</td>
           </tr>
-        </table> -->
+        </table>
       </div>
     </a>
   </div>

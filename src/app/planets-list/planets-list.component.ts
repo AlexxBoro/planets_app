@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { PlanetsService } from '../planets.service';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -18,51 +18,37 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
   subscriptionPlanets: Subscription;
 
   // url: string = "https://swapi.co/api/planets/";
-  // planets: any[];
-  // planetsAllMaybe: any[];
-  articles: any[];
-  url = 'https://swapi.co/api/planets/';
-
-  // @Input() planet;
+  planets: any[];
 
   constructor(private planetsService: PlanetsService, private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.arePlanetsLoading = true;
 
-    this.getArticles(this.url, this.articles);
-    // this.subscriptionPlanets = this.planetsService.getPlanets().subscribe(
-    //   planets => {
-    //     this.arePlanetsLoading = false;
-    //     this.planets = planets;
-    //     // console.log(planets);
-    // }, (error: Response) => {
-    //   alert('an unexpected error occured :-(');
-    //   console.log(error);
-    // });
+    // this.getPlanets(this.url, this.planets);
 
-    // this.subscriptionPlanets = this.planetsService.getPlanets(this.url, this.planets).subscribe(
-    //   data => {
-    //     if (this.planets === undefined) {this.planets = data['results']; } else { this.planets = this.planets.concat(data['results']); }
-    //     // return console.log(planets['next']);
-    //     if (data['next'] != null) {
-    //       this.planetsService.getPlanets(data['next'], this.planets);
-    //     } else { console.log('Finished'); }
-    //     // this.planets = this.planetsAllMaybe;
-    //     // console.log(this.planetsAllMaybe);
-    // });
-  }
-
-  getArticles(url: string, articles: any[]) {
-    this.httpClient.get(url).subscribe(data => {
-      if (articles === undefined) { articles = data['results']; } else { articles = articles.concat(data['results']); }
-      if (data['next'] != null) {
-        console.log(data['next'])
-        this.getArticles(data['next'], articles);
-      } else { console.log('Finished'); }
-      this.articles = articles;
+    this.subscriptionPlanets = this.planetsService.getPlanets().subscribe(
+      planets => {
+        this.arePlanetsLoading = false;
+        this.planets = planets;
+        // console.log(planets);
+    }, (error: Response) => {
+      alert('an unexpected error occured :-(');
+      console.log(error);
     });
   }
+
+  // getPlanets(url: string, planets: any[]) {
+  //   this.subscriptionPlanets = this.httpClient.get(url).subscribe(data => {
+  //     this.arePlanetsLoading = false;
+  //     if (planets === undefined) { planets = data['results']; } else { planets = planets.concat(data['results']); }
+  //     if (data['next'] != null) {
+  //       console.log(data['next'])
+  //       this.getPlanets(data['next'], planets);
+  //     } else { console.log('Finished'); }
+  //     this.planets = planets;
+  //   });
+  // }
 
   onSelected(planet) {
     console.log("you clicked me!");
@@ -78,5 +64,4 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptionPlanets.unsubscribe();
   }
-
 }

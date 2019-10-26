@@ -9,27 +9,22 @@ import { map, tap, take, exhaustMap } from "rxjs/operators";
 })
 export class PlanetsService {
 
-  // url: string = "https://swapi.co/api/planets/";
-  // planets: any[];
+  planets: any[];
+  url: string = 'https://swapi.co/api/planets/';
 
   selectedPlanet = new EventEmitter();
 
-
   constructor(private http: HttpClient) {}
 
-  getPlanets(url: string, planets: any[]) {
-    return this.http.get(url).pipe(map(data => {
+  getPlanets() {
+
+    return this.http.get(this.url).pipe(map(data => {
       console.log(data);
-      return data;
+      console.log(data['results']);
+      return data['results'];
     }));
-    // return this.http
-    //   .get("https://swapi.co/api/planets/?page=2")
-    //   .pipe(
-    //     map(data => {
-    //       console.log(data);
-    //       return data['results'];
-    //     })
-    //   );
+
+    // return this.http.get(this.url);
 
   }
 
