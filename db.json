@@ -1,0 +1,19 @@
+{
+  "planets": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "planeta Elbieta"
+    },
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "planeta KALETA"
+    },
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "planeta Wioleta"
+    }
+  ]
+}

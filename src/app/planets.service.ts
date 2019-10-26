@@ -11,6 +11,7 @@ export class PlanetsService {
 
   planets: any[];
   url: string = 'https://swapi.co/api/planets/';
+  urlMock: string = 'http://localhost:3000/planets';
 
   selectedPlanet = new EventEmitter();
 
@@ -26,6 +27,14 @@ export class PlanetsService {
 
     // return this.http.get(this.url);
 
+  }
+
+  getPlanetsMockData() {
+    return this.http.get(this.urlMock).pipe(map(data => {
+      console.log(data);
+      // console.log(data['results']);
+      return data;
+    }));
   }
 
   // getSelectedPlanet(name) {

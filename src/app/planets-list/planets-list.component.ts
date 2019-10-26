@@ -36,6 +36,12 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
       alert('an unexpected error occured :-(');
       console.log(error);
     });
+
+    this.planetsService.getPlanetsMockData().subscribe(
+      planets => {
+        console.log(planets);
+      }
+    );
   }
 
   // getPlanets(url: string, planets: any[]) {
