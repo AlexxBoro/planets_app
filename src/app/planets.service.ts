@@ -10,7 +10,6 @@ import { map, tap, take, exhaustMap } from "rxjs/operators";
 export class PlanetsService {
 
   planets: any[];
-  url: string = 'https://swapi.co/api/planets/';
   urlMock: string = 'http://localhost:3000/planets';
 
   selectedPlanet = new EventEmitter();
@@ -18,21 +17,8 @@ export class PlanetsService {
   constructor(private http: HttpClient) {}
 
   getPlanets() {
-
-    return this.http.get(this.url).pipe(map(data => {
-      console.log(data);
-      console.log(data['results']);
-      return data['results'];
-    }));
-
-    // return this.http.get(this.url);
-
-  }
-
-  getPlanetsMockData() {
     return this.http.get(this.urlMock).pipe(map(data => {
       console.log(data);
-      // console.log(data['results']);
       return data;
     }));
   }

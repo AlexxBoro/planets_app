@@ -13,12 +13,9 @@ import { PlanetsService } from '../planets.service';
 })
 export class PlanetsListComponent implements OnInit, OnDestroy {
 
-  // planets;
   arePlanetsLoading: boolean = false;
   subscriptionPlanets: Subscription;
-
-  // url: string = "https://swapi.co/api/planets/";
-  planets: any[];
+  planets;
 
   constructor(private planetsService: PlanetsService, private httpClient: HttpClient) { }
 
@@ -36,25 +33,7 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
       alert('an unexpected error occured :-(');
       console.log(error);
     });
-
-    this.planetsService.getPlanetsMockData().subscribe(
-      planets => {
-        console.log(planets);
-      }
-    );
   }
-
-  // getPlanets(url: string, planets: any[]) {
-  //   this.subscriptionPlanets = this.httpClient.get(url).subscribe(data => {
-  //     this.arePlanetsLoading = false;
-  //     if (planets === undefined) { planets = data['results']; } else { planets = planets.concat(data['results']); }
-  //     if (data['next'] != null) {
-  //       console.log(data['next'])
-  //       this.getPlanets(data['next'], planets);
-  //     } else { console.log('Finished'); }
-  //     this.planets = planets;
-  //   });
-  // }
 
   onSelected(planet) {
     console.log("you clicked me!");
