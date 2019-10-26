@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
 
 import { PlanetsService } from "../planets.service";
 
@@ -8,8 +9,10 @@ import { PlanetsService } from "../planets.service";
   templateUrl: "./planet-details.component.html",
   styleUrls: ["./planet-details.component.scss"]
 })
-export class PlanetDetailsComponent implements OnInit {
-  // selectedPlanet;
+export class PlanetDetailsComponent implements OnInit, OnDestroy {
+  planetSelected;
+  subscriptionParams: Subscription;
+  subscriptionPlanetSelected: Subscription;
 
   constructor(
     private planetsService: PlanetsService,
@@ -17,16 +20,24 @@ export class PlanetDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.planetsService.selectedPlanet.subscribe(
-    //   (planet) => {
-    //     this.selectedPlanet = planet;
-    //   }
-    // );
-    this.route.paramMap
-    .subscribe(params => {
+    console.log("ponizej details idzie:");
+
+    this.subscriptionPlanetSelected = this.planetsService.selectedPlanet.subscribe(
+      (planet: any) => {
+        console.log(planet);
+        this.planetSelected = planet;
+        console.log(planet);
+      }
+    );
+    // console.log(planet)
+
+    this.subscriptionParams = this.route.paramMap.subscribe(params => {
       console.log(params);
-      const planetName = params.get('name');
-      this.planetsService.getSelectedPlanet(planetName);
     });
+  }
+
+  ngOnDestroy() {
+    this.subscriptionParams.unsubscribe();
+    this.subscriptionPlanetSelected.unsubscribe();
   }
 }

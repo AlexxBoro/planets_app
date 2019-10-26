@@ -1,12 +1,12 @@
 <app-search-bar></app-search-bar>
 <div class="planets-grid">
   <p style="color:white;" *ngIf="arePlanetsLoading">Loading planets....</p>
-  <!-- <app-planet-card *ngFor="let planet of planets"></app-planet-card> -->
-  <div *ngFor="let planet of planets" class="col-sm-6 col-md-4 planet-card">
-    <a [routerLink]="['/details', planet.name]" class="planet-card__content">
+
+  <div *ngFor="let article of articles" class="col-sm-6 col-md-4 planet-card">
+    <a [routerLink]="['/details', article.name]" class="planet-card__content" (click)="onSelected(article)">
       <div class="thumbnail">
-        <h2>{{ planet.name }}</h2>
-        <table>
+        <h2>{{ article.name }}</h2>
+        <!-- <table>
           <tr>
             <td>diameter:</td>
             <td class="data-column">{{ planet.diameter }}</td>
@@ -23,7 +23,7 @@
             <td>population:</td>
             <td class="data-column">{{ planet.population }}</td>
           </tr>
-        </table>
+        </table> -->
       </div>
     </a>
   </div>

@@ -9,9 +9,9 @@ import { PlanetsService } from 'src/app/planets.service';
 export class PlanetCardComponent implements OnInit {
 
   // planets;
-  @Input() planet: void;
+  // @Input() planet: void;
 
-  constructor(private planetsService: PlanetsService) { }
+  // constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
     // this.planetsService.getPlanets().subscribe(planets => {
@@ -22,7 +22,7 @@ export class PlanetCardComponent implements OnInit {
 
   onSelected() {
     // console.log("clicked on selected card!");
-    this.planetsService.selectedPlanet.emit(this.planet);
+    // this.planetsService.selectedPlanet.emit(this.planet);
   }
 
 }
