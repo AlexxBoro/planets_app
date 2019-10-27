@@ -2,7 +2,25 @@
     <a [routerLink]="['/']" class="arrow-back" aria-label="go back to the main page">
       <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
     </a>
-    <p>planet-details component works!</p>
-    <!-- <p>{{ selectedPlanet.name }}</p> -->
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h2> {{ data.name }}</h2>
+        <p> {{ data.rotation_period }}</p>
+        <p> {{ data.orbital_period }}</p>
+        <p> {{ data.diameter }}</p>
+        <p> {{ data.climate }}</p>
+        <p> {{ data.gravity }}</p>
+        <p> {{ data.terrain }}</p>
+        <p> {{ data.surface_water }}</p>
+        <p> {{ data.population }}</p>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+          <p> kolejne inne info</p>
+        </div>
+      </div>
 </div>
 

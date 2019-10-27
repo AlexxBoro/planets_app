@@ -1,22 +1,19 @@
-import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { PlanetsService } from '../planets.service';
-import { EventEmitter } from "@angular/core";
+import { Planet } from '../planet.model';
 
 @Component({
   selector: 'app-planets-list',
   templateUrl: './planets-list.component.html',
-  styleUrls: ['./planets-list.component.scss'],
-  providers: [PlanetsService]
+  styleUrls: ['./planets-list.component.scss']
 })
 export class PlanetsListComponent implements OnInit, OnDestroy {
 
   arePlanetsLoading: boolean = false;
   subscriptionPlanets: Subscription;
-  planets: any[];
-
-  @Output() myEvent = new EventEmitter();
+  planets: Planet[];
 
   constructor(private planetsService: PlanetsService) { }
 
@@ -24,30 +21,14 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
     this.arePlanetsLoading = true;
 
     this.subscriptionPlanets = this.planetsService.getPlanets().subscribe(
-      planets => {
+      (planets: Planet[]) => {
         this.arePlanetsLoading = false;
         this.planets = planets;
+        console.log(planets);
     }, (error: Response) => {
       alert('an unexpected error occured :-(');
       console.log(error);
     });
-  }
-
-  onSelected(planet): void {
-    console.log("you clicked me!");
-
-    console.log(planet);
-
-    // call some method in my service!
-    this.planetsService.selectedPlanet.emit(planet);
-
-    // console.log("po wyemitowaniu  planety do servisu..")
-
-    // console.log(this.planets);
-
-    // this.planetsService.data = planet;
-
-    // this.myEvent.emit(planet);
   }
 
   ngOnDestroy() {

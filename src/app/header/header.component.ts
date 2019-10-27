@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   title: string = 'Welcome to the Planet App!';
-  text: string = 'Discover undiscovered. Learn about the misterious world of planets. Check out the details of each celestial body by clicking on it.';
+  text: string = 'Discover undiscovered. Click on any celestial body to see details.';
 
   constructor() {}
-
-  ngOnInit() {}
 }

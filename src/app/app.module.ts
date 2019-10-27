@@ -40,7 +40,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ]),
     HttpClientModule
   ],
-  providers: [PlanetsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,27 +1,4 @@
-.planet-card {
-  padding: .3em;
-}
-
-.planet-card__content {
-  text-decoration: none;
-  color: #333;
-  & .thumbnail {
-    background-color: #eee;
-  }
-}
-
-span {
-  font-weight: 600;
-}
-
-h2 {
-  margin-left: 1rem;
-}
-
-table {
-  margin: 1rem;
-}
-
-.data-column {
-  padding-left: 1rem;
+app-planet-card:focus {
+  outline: none;
+  // background-color:blue;
 }
