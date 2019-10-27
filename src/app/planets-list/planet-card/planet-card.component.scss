@@ -1,23 +1,26 @@
 .planet-card {
-  padding: .3em;
+  padding: 0.3em;
   cursor: pointer;
-  &:focus{
-    background-color:blue;
+  &:focus {
+    background-color: blue;
   }
 }
 
 .planet-card__content {
   text-decoration: none;
   color: #333;
-  // &:focus {
-  //   outline: none;
-  // }
   & .thumbnail {
     background-color: #eee;
     margin-bottom: 0;
   }
   & .thumbnail:focus {
     background-color: rgb(185, 185, 185);
+  }
+}
+
+.thumbnail {
+  & h2 {
+    text-shadow: 1px 1px 6px grey;
   }
 }
 
@@ -34,5 +37,6 @@ table {
 }
 
 .data-column {
-  padding-left: 1rem;
+  padding-left: 4rem;
+  font-weight: 600;
 }

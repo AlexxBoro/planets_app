@@ -1,23 +1,63 @@
-.jumbotron__title {
+.jumbotron {
+  position: relative;
+}
+
+.jumbotron-title {
   display: flex;
   justify-content: space-between;
   & h1 {
-    margin: 0.75em 0.25em 0.25em 0;
+    margin: 0.75em 0.25em 0.75em 0;
+    text-shadow: 2px 2px 8px grey;
   }
-  &__icon {
-    background: url('../joda.png') no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 13em;
-    width: 13em;
+}
 
+.jumbotron-icon {
+  background: url("../joda.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 13em;
+  width: 13em;
+  position: absolute;
+  top: 4em;
+  right: 3em;
+}
+
+@media (max-width: 1200px) {
+  .jumbotron-icon {
+    top: 10em;
+  }
+}
+
+@media (max-width: 990px) {
+  .jumbotron-icon {
+    top: 8em;
+    height: 10em;
+    width: 10em;
   }
 }
 
 @media (max-width: 900px) {
   .jumbotron-title {
     & h1 {
-      margin: 0 .25em 0 0;
+      margin: 0 0.25em 0 0;
     }
+  }
+  .jumbotron-icon {
+    top: 3em;
+  }
+}
+
+@media (max-width: 770px) {
+  .jumbotron-icon {
+    top: 1em;
+    right: 1em;
+    height: 8em;
+    width: 8em;
+  }
+}
+
+@media (max-width: 730px) {
+  .jumbotron-icon {
+    display: none;
   }
 }

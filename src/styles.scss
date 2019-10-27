@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -9,4 +10,6 @@ html, body {
 body {
   background: url("../src/app/kai-pilger-Ef6iL87-vOA-unsplash.jpg");
   background-repeat: repeat;
+  padding-bottom: 2em;
+  position: relative;
 }

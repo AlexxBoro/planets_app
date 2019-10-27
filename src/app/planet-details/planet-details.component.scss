@@ -1,8 +1,37 @@
 .arrow-back {
-  color: #333;
+  color: #eee;
   cursor: pointer;
 }
 
-.arrow-back:hover, .arrow-back:focus {
-  color: #eee;
+.arrow-back:hover,
+.arrow-back:focus {
+  color: gray;
+}
+
+.planet-details-container {
+  margin: 2em 0;
+  position: relative;
+  & h2 {
+    font-size: 3em;
+    margin-bottom: 1.5em;
+    text-shadow: 2px 2px 8px grey;
+    text-align: center;
+  }
+  & td {
+    font-size: 1.3em;
+  }
+}
+
+.planet-details-table {
+  margin: 0 auto;
+}
+
+.table-data {
+  padding-left: 3em;
+  font-weight: 600;
+}
+
+.planet-details-icon {
+  position: absolute;
+  top: 50px;
 }

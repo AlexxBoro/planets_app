@@ -3,7 +3,6 @@ import { Subscription } from "rxjs";
 
 import { PlanetsService } from "../planets.service";
 import { Planet } from "../planet.model";
-
 @Component({
   selector: "app-planets-list",
   templateUrl: "./planets-list.component.html",
@@ -14,8 +13,6 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
   subscriptionPlanets: Subscription;
   planetList: Planet[];
   filteredPlanetList: Planet[];
-  // planetList: any;
-
 
   constructor(private planetsService: PlanetsService) {}
 
@@ -30,7 +27,6 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
 
   loadPlanetsData() {
     this.arePlanetsLoading = true;
-
     this.subscriptionPlanets = this.planetsService.getPlanets().subscribe(
       (planets: Planet[]) => {
         this.arePlanetsLoading = false;
@@ -44,31 +40,13 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
     );
   }
 
-
   ngOnInit() {
-    // this.arePlanetsLoading = true;
-
-    // this.subscriptionPlanets = this.planetsService.getPlanets().subscribe(
-    //   (planets: Planet[]) => {
-    //     this.arePlanetsLoading = false;
-    //     this.planets = planets;
-    //   },
-    //   (error: Response) => {
-    //     alert("an unexpected error occured :-(");
-    //     console.log(error);
-    //   }
-    // );
-
     this.loadPlanetsData();
   }
 
-
-
   filterList(value: string) {
-    console.log(value);
-
-    return this.planetList.filter(planet =>
-      planet.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
+    return this.planetList.filter(
+      planet => planet.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
     );
   }
 

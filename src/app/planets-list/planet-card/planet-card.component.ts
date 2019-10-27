@@ -16,10 +16,6 @@ export class PlanetCardComponent implements OnInit {
   ngOnInit() {}
 
   onSelected() {
-    // console.log("clicked on selected planet!");
-
-    // this.planetsService.selectedPlanet.emit(this.planet);
-
     this.planetsService.data = this.planet;
   }
 }

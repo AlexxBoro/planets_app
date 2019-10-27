@@ -1,26 +1,49 @@
-<div style="background:lightgray;">
-    <a [routerLink]="['/']" class="arrow-back" aria-label="go back to the main page">
-      <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
-    </a>
+<div>
+  <a
+    [routerLink]="['/']"
+    class="arrow-back"
+    aria-label="go back to the main page"
+  >
+    <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
+  </a>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <h2> {{ data.name }}</h2>
-        <p> {{ data.rotation_period }}</p>
-        <p> {{ data.orbital_period }}</p>
-        <p> {{ data.diameter }}</p>
-        <p> {{ data.climate }}</p>
-        <p> {{ data.gravity }}</p>
-        <p> {{ data.terrain }}</p>
-        <p> {{ data.surface_water }}</p>
-        <p> {{ data.population }}</p>
-      </div>
-    </div>
+  <div class="jumbotron planet-details-container">
+    <h2>{{ data.name }}</h2>
+    <table class="planet-details-table">
+      <tr>
+        <td>rotation period:</td>
+        <td class="table-data">{{ data.rotation_period }}</td>
+      </tr>
+      <tr>
+        <td>orbital period:</td>
+        <td class="table-data">{{ data.orbital_period }}</td>
+      </tr>
+      <tr>
+        <td>diameter:</td>
+        <td class="table-data">{{ data.diameter }}</td>
+      </tr>
+      <tr>
+        <td>climate:</td>
+        <td class="table-data">{{ data.climate }}</td>
+      </tr>
+      <tr>
+        <td>gravity:</td>
+        <td class="table-data">{{ data.gravity }}</td>
+      </tr>
+      <tr>
+        <td>terrain:</td>
+        <td class="table-data">{{ data.terrain }}</td>
+      </tr>
+      <tr>
+        <td>surface water:</td>
+        <td class="table-data">{{ data.surface_water }}</td>
+      </tr>
+      <tr>
+        <td>surface population:</td>
+        <td class="table-data">{{ data.population }}</td>
+      </tr>
+    </table>
 
-    <div class="row">
-        <div class="col-xs-12">
-          <p> kolejne inne info</p>
-        </div>
-      </div>
+    <i class="fa fa-globe fa-4x planet-details-icon" aria-hidden="true"></i>
+  </div>
 </div>
-

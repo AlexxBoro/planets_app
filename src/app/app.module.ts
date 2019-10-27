@@ -6,18 +6,15 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
-import { SearchBarComponent } from "./search-bar/search-bar.component";
 import { PlanetDetailsComponent } from "./planet-details/planet-details.component";
 import { PlanetsListComponent } from "./planets-list/planets-list.component";
 import { PlanetCardComponent } from "./planets-list/planet-card/planet-card.component";
-import { PlanetsService } from "./planets.service";
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchBarComponent,
     PlanetDetailsComponent,
     PlanetsListComponent,
     PlanetCardComponent,

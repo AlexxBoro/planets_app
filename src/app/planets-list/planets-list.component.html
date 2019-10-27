@@ -1,9 +1,28 @@
-<app-search-bar></app-search-bar>
-<input  #myInput placeholder="Item name..." name="searchedPhrase" [(ngModel)]="searchTerm" />
-<button (click)="filterList(myInput.value)">search</button>
-<button *ngIf="searchTerm" (click)="searchTerm = ''">clear field</button>
+<label for="searchedPhrase" class="sr-only">Search planet by name:</label>
+<div class="searchbar">
+  <input
+    class="form-control searchbar-input"
+    #myInput
+    placeholder="Search by name..."
+    name="searchedPhrase"
+    [(ngModel)]="searchTerm"
+    (keyup.enter)="searchTerm = ''"
+  />
+  <button
+    class="btn btn-default searchbar-button"
+    *ngIf="searchTerm"
+    (click)="searchTerm = ''"
+  >
+    clear field
+  </button>
+</div>
 <div class="planets-grid">
-  <p style="color:white;" *ngIf="arePlanetsLoading">Loading planets....</p>
+  <div class="lds-ring" *ngIf="arePlanetsLoading">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   <app-planet-card
     *ngFor="let planet of filteredPlanetList"
     [planet]="planet"

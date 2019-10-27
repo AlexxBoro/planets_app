@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  title: string = 'Welcome to the Planet App!';
-  text: string = 'Discover undiscovered. Click on any celestial body to see details.';
+  headerTitle: string = 'Welcome to the Planet App!';
+  headerText: string = 'Discover undiscovered. Click on any celestial body to see details.';
 
   constructor() {}
 }
