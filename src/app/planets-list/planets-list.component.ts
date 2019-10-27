@@ -24,7 +24,6 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
       (planets: Planet[]) => {
         this.arePlanetsLoading = false;
         this.planets = planets;
-        console.log(planets);
     }, (error: Response) => {
       alert('an unexpected error occured :-(');
       console.log(error);

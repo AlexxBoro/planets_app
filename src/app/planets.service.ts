@@ -19,7 +19,6 @@ export class PlanetsService {
 
   getPlanets(): Observable<any> {
     return this.http.get(this.url).pipe(map(allPlanets => {
-      console.log(allPlanets);
       return allPlanets;
     }));
   }
