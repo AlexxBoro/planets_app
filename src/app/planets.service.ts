@@ -14,13 +14,14 @@ export class PlanetsService {
   selectedPlanet = new EventEmitter<any>();
 
   // data: {name: string, rotation_period: number};
-  data;
+  allPlanets;
 
   constructor(private http: HttpClient) {}
 
   getPlanets(): Observable<any> {
-    return this.http.get(this.url).pipe(map(data => {
-      return data;
+    return this.http.get(this.url).pipe(map(allPlanets => {
+      console.log(allPlanets);
+      return allPlanets;
     }));
   }
 

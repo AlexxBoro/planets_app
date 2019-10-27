@@ -41,7 +41,7 @@ export class PlanetDetailsComponent implements OnInit, OnDestroy {
     // this.planetSelected = this.planetsService.selectedPlanet;
     // console.log(this.planetSelected);
 
-    this.planetSelected = this.planetsService.data;
+    this.planetSelected = this.planetsService.allPlanets;
     console.log(this.planetSelected);
 
     this.subscriptionParams = this.route.paramMap.subscribe(params => {
