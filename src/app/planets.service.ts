@@ -1,24 +1,25 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output } from "@angular/core";
 import { EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map, tap, take, exhaustMap } from "rxjs/operators";
-// import { lookup } from 'dns';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class PlanetsService {
 
-  planets: any[];
-  urlMock: string = 'http://localhost:3000/planets';
+  url: string = 'http://localhost:3000/planets';
 
-  selectedPlanet = new EventEmitter();
+  selectedPlanet = new EventEmitter<any>();
+
+  // data: {name: string, rotation_period: number};
+  data;
 
   constructor(private http: HttpClient) {}
 
-  getPlanets() {
-    return this.http.get(this.urlMock).pipe(map(data => {
-      console.log(data);
+  getPlanets(): Observable<any> {
+    return this.http.get(this.url).pipe(map(data => {
       return data;
     }));
   }

@@ -10,34 +10,50 @@ import { PlanetsService } from "../planets.service";
   styleUrls: ["./planet-details.component.scss"]
 })
 export class PlanetDetailsComponent implements OnInit, OnDestroy {
-  planetSelected;
   subscriptionParams: Subscription;
   subscriptionPlanetSelected: Subscription;
+  // selectedPlanet;
+  planetSelected;
 
   constructor(
     private planetsService: PlanetsService,
     private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    console.log("ponizej details idzie:");
-
-    this.subscriptionPlanetSelected = this.planetsService.selectedPlanet.subscribe(
-      (planet: any) => {
-        console.log(planet);
-        this.planetSelected = planet;
-        console.log(planet);
+  ) {
+    this.planetsService.selectedPlanet.subscribe(
+      (planetThatWasSelected) => {
+        console.log(planetThatWasSelected);
       }
     );
-    // console.log(planet)
+  }
+
+  ngOnInit(): void {
+    console.log("ponizej details idzie:");
+
+    // this.subscriptionPlanetSelected = this.planetsService.selectedPlanet.subscribe(
+    //   (planet: any) => {
+    //     console.log(planet);
+    //     this.planetSelected = planet;
+    //     console.log(planet);
+    //   }
+    // );
+    // console.log(this.planetSelected)
+
+    // this.planetSelected = this.planetsService.selectedPlanet;
+    // console.log(this.planetSelected);
+
+    this.planetSelected = this.planetsService.data;
+    console.log(this.planetSelected);
 
     this.subscriptionParams = this.route.paramMap.subscribe(params => {
       console.log(params);
     });
+
+    // this.selectedPlanet = history.state.data;
+    // console.log(this.selectedPlanet);
   }
 
   ngOnDestroy() {
     this.subscriptionParams.unsubscribe();
-    this.subscriptionPlanetSelected.unsubscribe();
+    // this.subscriptionPlanetSelected.unsubscribe();
   }
 }

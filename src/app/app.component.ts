@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PlanetsService } from './planets.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Welcome to the Planet App!';
+  // planetSelected;
+
+
+  // constructor(private planetsService: PlanetsService) { }
+
+  // ngOnInit() {
+  //   this.planetSelected = this.planetsService.selectedPlanet;
+  //   console.log(this.planetSelected);
+
+  // }
 }

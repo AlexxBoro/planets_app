@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 import { PlanetsService } from '../planets.service';
-
+import { EventEmitter } from "@angular/core";
 
 @Component({
   selector: 'app-planets-list',
@@ -15,27 +14,26 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
 
   arePlanetsLoading: boolean = false;
   subscriptionPlanets: Subscription;
-  planets;
+  planets: any[];
 
-  constructor(private planetsService: PlanetsService, private httpClient: HttpClient) { }
+  @Output() myEvent = new EventEmitter();
+
+  constructor(private planetsService: PlanetsService) { }
 
   ngOnInit() {
     this.arePlanetsLoading = true;
-
-    // this.getPlanets(this.url, this.planets);
 
     this.subscriptionPlanets = this.planetsService.getPlanets().subscribe(
       planets => {
         this.arePlanetsLoading = false;
         this.planets = planets;
-        // console.log(planets);
     }, (error: Response) => {
       alert('an unexpected error occured :-(');
       console.log(error);
     });
   }
 
-  onSelected(planet) {
+  onSelected(planet): void {
     console.log("you clicked me!");
 
     console.log(planet);
@@ -43,7 +41,13 @@ export class PlanetsListComponent implements OnInit, OnDestroy {
     // call some method in my service!
     this.planetsService.selectedPlanet.emit(planet);
 
+    // console.log("po wyemitowaniu  planety do servisu..")
+
     // console.log(this.planets);
+
+    // this.planetsService.data = planet;
+
+    // this.myEvent.emit(planet);
   }
 
   ngOnDestroy() {
